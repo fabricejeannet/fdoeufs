@@ -1,0 +1,16 @@
+{
+	"res://tests/item.test.gd": {
+		"path": "res://tests/item.test.gd",
+		"tags": [
+
+		],
+		"passing": true
+	},
+	"res://tests/game.test.gd": {
+		"path": "res://tests/game.test.gd",
+		"tags": [
+
+		],
+		"passing": false
+	}
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<testsuites failures="0" name="TestXML" tests="2" time="0">
+	<testsuite name="Item" failures="0"  tests="1" time="0">
+		<testcase name=" can initialize item" time="0"></testcase>
+	</testsuite>
+
+	<testsuite name="Game" failures="0"  tests="9" time="0">
+		<testcase name=" can apply both positive and negative effects on eggs per second rate" time="0"></testcase>
+		<testcase name=" can set an egg per click value" time="0"></testcase>
+		<testcase name=" can set an inflation rate" time="0"></testcase>
+		<testcase name=" can count eggs produced in 1 second by all items" time="0"></testcase>
+		<testcase name=" game starts with zero egg" time="0"></testcase>
+		<testcase name=" cant buy items if you dont have enough eggs" time="0"></testcase>
+		<testcase name=" can initialize multiple items" time="0"></testcase>
+		<testcase name=" buying an item increases its price and its quantity" time="0"></testcase>
+		<testcase name=" can apply both positive and negative effects on eggs per click rate" time="0"></testcase>
+	</testsuite>
+
+</testsuites>
