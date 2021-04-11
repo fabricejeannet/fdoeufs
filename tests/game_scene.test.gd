@@ -25,58 +25,65 @@ func test_clicking_on_the_egg_updates_egg_counter() -> void:
 	asserts.is_equal(float(game_scene.egg_counter_label.text), game_scene.game.get_egg_count())
 
 
-func test_timer_timeout_updates_egg_counter() -> void:
+func test_TickTimer_timeout_updates_egg_counter() -> void:
 	var game = game_scene.game
 	game.set_egg_count(2.0)
-	var item = Item.new("Test item", "res://icon.png", 1.0, 10.0)
-	game.items.append(item)
-	game.buy(item, 1)
+#	var item = Item.new("Test item", "res://icon.png", 1.0, 10.0)
+#	game.items.append(item)
+	game.buy(game.items[0], 1)
 	game_scene._on_TickTimer_timeout()
-	asserts.is_equal(game.get_egg_count(), 11.0)
+	asserts.is_equal(game.get_egg_count(), 1.1)
 	
 
 func test_item_button_container_is_correctly_filled() -> void:
-	var items_specifications = [
-		["Item #0", "res://icon.png", 1.0, 10.0],
-		["Item #1", "res://icon.png", 1.0, 10.0],
-		["Item #2", "res://icon.png", 1.0, 10.0],
-	]
-	var game = game_scene.game
-	game.init_items(items_specifications)
-	game_scene.add_item_buttons()
-	asserts.is_equal(game_scene.item_button_container.get_child_count(), 3)
+#	var items_specifications = [
+#		["Item #0", "res://icon.png", 1.0, 10.0],
+#		["Item #1", "res://icon.png", 1.0, 10.0],
+#		["Item #2", "res://icon.png", 1.0, 10.0],
+#	]
+#	var game = game_scene.game
+#	game.init_items(items_specifications)
+#	game_scene.add_item_buttons()
+	asserts.is_equal(game_scene.item_button_container.get_child_count(), 5)
 
 
 func test_can_update_item_button_container() -> void:
-	var items_specifications = [
-		["Item #0", "res://icon.png", 1.0, 0.0],
-		["Item #1", "res://icon.png", 10.0, 2.0],
-	]
+#	var items_specifications = [
+#		["Item #0", "res://icon.png", 1.0, 0.0],
+#		["Item #1", "res://icon.png", 10.0, 2.0],
+#	]
 	var game = game_scene.game
-	game.init_items(items_specifications)
+#	game.init_items(items_specifications)
 	game.buy(game.items[0], 1)
 	game.buy(game.items[1], 1)
-	game_scene.add_item_buttons()
-	for item_button in game_scene.item_button_container.get_children(): #_ready function is not called automaticaly 
-		item_button._ready()
-	game.set_egg_count(2.0)
+#	game_scene.add_item_buttons()
+#	for item_button in game_scene.item_button_container.get_children(): #_ready function is not called automaticaly 
+#		item_button._ready()
+	game.set_egg_count(3.0)
 	game_scene.update_item_button_container()
 	asserts.is_false(game_scene.item_button_container.get_child(0).disabled)
 	asserts.is_true(game_scene.item_button_container.get_child(1).disabled)
+	asserts.is_true(game_scene.item_button_container.get_child(2).disabled)
+	asserts.is_true(game_scene.item_button_container.get_child(3).disabled)
+	asserts.is_true(game_scene.item_button_container.get_child(4).disabled)
+	
 	asserts.is_equal(game_scene.item_button_container.get_child(0).item_count.text, "x 1")
 	asserts.is_equal(game_scene.item_button_container.get_child(1).item_count.text, "x 1")
+	asserts.is_equal(game_scene.item_button_container.get_child(2).item_count.text, "x 0")
+	asserts.is_equal(game_scene.item_button_container.get_child(3).item_count.text, "x 0")
+	asserts.is_equal(game_scene.item_button_container.get_child(4).item_count.text, "x 0")
 
 
 func test_can_buy_an_item_by_clicking_an_item_button() -> void:
-	var items_specifications = [
-		["Item #0", "res://icon.png", 1.0, 0.0],
-		["Item #1", "res://icon.png", 10.0, 2.0],
-	]
+#	var items_specifications = [
+#		["Item #0", "res://icon.png", 1.0, 0.0],
+#		["Item #1", "res://icon.png", 10.0, 2.0],
+#	]
 	var game = game_scene.game
-	game.init_items(items_specifications)
-	game_scene.add_item_buttons()
-	for item_button in game_scene.item_button_container.get_children(): #_ready function is not called automaticaly 
-		item_button._ready()
+#	game.init_items(items_specifications)
+#	game_scene.add_item_buttons()
+#	for item_button in game_scene.item_button_container.get_children(): #_ready function is not called automaticaly 
+#		item_button._ready()
 	game.set_egg_count(2.0)
 	game_scene.update_item_button_container()
 	game_scene._on_item_button_click(game.items[0])
