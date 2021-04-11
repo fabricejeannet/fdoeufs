@@ -35,4 +35,39 @@ func test_timer_timeout_updates_egg_counter() -> void:
 	asserts.is_equal(game.get_egg_count(), 11.0)
 	
 
+func test_item_button_container_is_correctly_filled() -> void:
+	var items_specifications = [
+		["Item #0", "res://icon.png", 1.0, 10.0],
+		["Item #1", "res://icon.png", 1.0, 10.0],
+		["Item #2", "res://icon.png", 1.0, 10.0],
+	]
+	var game = game_scene.game
+	game.init_items(items_specifications)
+	game_scene.add_item_buttons()
+	asserts.is_equal(game_scene.item_button_container.get_child_count(), 3)
+
+
+func test_can_update_item_button_container() -> void:
+	var items_specifications = [
+		["Item #0", "res://icon.png", 1.0, 0.0],
+		["Item #1", "res://icon.png", 10.0, 2.0],
+	]
+	var game = game_scene.game
+	game.init_items(items_specifications)
+	game.buy(game.items[0], 1)
+	game.buy(game.items[1], 1)
+	game_scene.add_item_buttons()
+	for item_button in game_scene.item_button_container.get_children(): #_ready function is not called automaticaly 
+		item_button._ready()
+	game.set_egg_count(2.0)
+	game_scene.update_item_button_container()
+	asserts.is_false(game_scene.item_button_container.get_child(0).disabled)
+	asserts.is_true(game_scene.item_button_container.get_child(1).disabled)
+	asserts.is_equal(game_scene.item_button_container.get_child(0).item_count.text, "x 1")
+	asserts.is_equal(game_scene.item_button_container.get_child(1).item_count.text, "x 1")
+
+
+	
+	
+
 

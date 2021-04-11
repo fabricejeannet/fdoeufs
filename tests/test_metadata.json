@@ -1,4 +1,11 @@
 {
+	"res://tests/game_scene.test.gd": {
+		"path": "res://tests/game_scene.test.gd",
+		"tags": [
+
+		],
+		"passing": true
+	},
 	"res://tests/item.test.gd": {
 		"path": "res://tests/item.test.gd",
 		"tags": [
@@ -11,6 +18,13 @@
 		"tags": [
 
 		],
-		"passing": false
+		"passing": true
+	},
+	"res://tests/item_button.test.gd": {
+		"path": "res://tests/item_button.test.gd",
+		"tags": [
+
+		],
+		"passing": true
 	}
 }

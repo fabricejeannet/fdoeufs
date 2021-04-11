@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/item_button.gd" type="Script" id=1]
+[ext_resource path="res://fdoeufs.tres" type="Theme" id=2]
+[ext_resource path="res://assets/img/egg-currency.png" type="Texture" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+
+[node name="ItemButton" type="Button"]
+rect_min_size = Vector2( 420, 142 )
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HB" type="HBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 413.0
+margin_bottom = 139.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemIcon" type="TextureRect" parent="HB"]
+margin_right = 128.0
+margin_bottom = 136.0
+texture = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HB"]
+margin_left = 136.0
+margin_right = 325.0
+margin_bottom = 136.0
+
+[node name="ItemTitle" type="Label" parent="HB/VBoxContainer"]
+margin_right = 189.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+text = "Description"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HB/VBoxContainer"]
+margin_top = 72.0
+margin_right = 189.0
+margin_bottom = 136.0
+
+[node name="TextureRect" type="TextureRect" parent="HB/VBoxContainer/HBoxContainer"]
+margin_right = 44.0
+margin_bottom = 64.0
+texture = ExtResource( 3 )
+
+[node name="ItemPrice" type="Label" parent="HB/VBoxContainer/HBoxContainer"]
+margin_left = 52.0
+margin_right = 102.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+text = "10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemCount" type="Label" parent="HB"]
+margin_left = 333.0
+margin_top = 9.0
+margin_right = 429.0
+margin_bottom = 127.0
+text = "x 100
+"
+align = 2
+valign = 1

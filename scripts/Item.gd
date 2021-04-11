@@ -1,6 +1,5 @@
 class_name Item
 
-
 var price:int = 0
 var count :int = 0
 var eggs_per_second:float 
