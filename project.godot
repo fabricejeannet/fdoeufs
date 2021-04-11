@@ -19,6 +19,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Item.gd"
 }, {
+"base": "Button",
+"class": "ItemButtonScene",
+"language": "GDScript",
+"path": "res://scripts/item_button.gd"
+}, {
 "base": "Reference",
 "class": "WAT",
 "language": "GDScript",
@@ -32,6 +37,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Game": "",
 "Item": "",
+"ItemButtonScene": "",
 "WAT": "",
 "WATTest": ""
 }
@@ -55,6 +61,10 @@ Display=8
 
 config/name="fdoeufs"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/height=800
 
 [editor_plugins]
 

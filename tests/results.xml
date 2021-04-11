@@ -1,12 +1,13 @@
 <?xml version="1.0" ?>
 <testsuites failures="0" name="TestXML" tests="4" time="0">
-	<testsuite name="" failures="0"  tests="6" time="0">
-		<testcase name=" timer timeout updates egg counter" time="0"></testcase>
+	<testsuite name="" failures="0"  tests="7" time="0">
+		<testcase name=" can buy an item by clicking an item button" time="0"></testcase>
 		<testcase name=" can create a game scene" time="0"></testcase>
+		<testcase name=" can update item button container" time="0"></testcase>
+		<testcase name=" game scene has a game" time="0"></testcase>
 		<testcase name=" clicking on the egg updates egg counter" time="0"></testcase>
 		<testcase name=" item button container is correctly filled" time="0"></testcase>
-		<testcase name=" game scene has a game" time="0"></testcase>
-		<testcase name=" can update item button container" time="0"></testcase>
+		<testcase name=" timer timeout updates egg counter" time="0"></testcase>
 	</testsuite>
 
 	<testsuite name="" failures="0"  tests="1" time="0">
@@ -14,15 +15,15 @@
 	</testsuite>
 
 	<testsuite name="" failures="0"  tests="9" time="0">
-		<testcase name=" can set an egg per click value" time="0"></testcase>
-		<testcase name=" game starts with zero egg" time="0"></testcase>
-		<testcase name=" can apply both positive and negative effects on eggs per second rate" time="0"></testcase>
-		<testcase name=" cant buy items if you dont have enough eggs" time="0"></testcase>
-		<testcase name=" can set an inflation rate" time="0"></testcase>
-		<testcase name=" can apply both positive and negative effects on eggs per click rate" time="0"></testcase>
 		<testcase name=" can count eggs produced in 1 second by all items" time="0"></testcase>
-		<testcase name=" can initialize multiple items" time="0"></testcase>
 		<testcase name=" buying an item increases its price and its quantity" time="0"></testcase>
+		<testcase name=" can apply both positive and negative effects on eggs per second rate" time="0"></testcase>
+		<testcase name=" game starts with zero egg" time="0"></testcase>
+		<testcase name=" cant buy items if you dont have enough eggs" time="0"></testcase>
+		<testcase name=" can apply both positive and negative effects on eggs per click rate" time="0"></testcase>
+		<testcase name=" can set an egg per click value" time="0"></testcase>
+		<testcase name=" can initialize multiple items" time="0"></testcase>
+		<testcase name=" can set an inflation rate" time="0"></testcase>
 	</testsuite>
 
 	<testsuite name="" failures="0"  tests="1" time="0">

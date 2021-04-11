@@ -67,7 +67,20 @@ func test_can_update_item_button_container() -> void:
 	asserts.is_equal(game_scene.item_button_container.get_child(1).item_count.text, "x 1")
 
 
-	
+func test_can_buy_an_item_by_clicking_an_item_button() -> void:
+	var items_specifications = [
+		["Item #0", "res://icon.png", 1.0, 0.0],
+		["Item #1", "res://icon.png", 10.0, 2.0],
+	]
+	var game = game_scene.game
+	game.init_items(items_specifications)
+	game_scene.add_item_buttons()
+	for item_button in game_scene.item_button_container.get_children(): #_ready function is not called automaticaly 
+		item_button._ready()
+	game.set_egg_count(2.0)
+	game_scene.update_item_button_container()
+	game_scene._on_item_button_click(game.items[0])
+	asserts.is_equal(game.items[0].get_count(), 1)
 	
 
 

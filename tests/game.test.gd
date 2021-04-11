@@ -79,3 +79,25 @@ func test_can_apply_both_positive_and_negative_effects_on_eggs_per_second_rate()
 	game.set_production_rate(-0.1)	
 	var count = game.count_eggs_produced_by_items()
 	asserts.is_equal(ceil(count), 11)
+
+#func test_can_save_game() -> void :
+#	var items_specifications = [
+#		["Item #0", "res://icon.png", 1.0, 0.0],
+#		["Item #1", "res://icon.png", 10.0, 2.0],
+#	]
+#	game.init_items(items_specifications)
+#	game.buy(game.items[0], 1)
+#	game.buy(game.items[1], 1)
+#	game.set_egg_count(2.0)
+#	game.save()
+#
+#	var witness = {
+#		"egg_count" : 2.0,
+#		"egg_per_click" : 10.0,
+#		"inflation_rate" : game.get_inflation_rate(),
+#		"production_rate" : game.get_production_rate(),
+#		"items" : {
+#			{}
+#		}
+#
+#	}

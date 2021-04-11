@@ -66,3 +66,27 @@ func count_eggs_produced_by_items() -> float:
 	for item in items:
 		count += item.get_eggs_per_second() * item.get_count() * _production_rate
 	return count
+
+func save():
+	var items_infos = []
+	for item in items :
+		var item_infos = {
+			"title" : item.get_title(),
+			"icon_path" : item.get_icon_path(),
+			"price": item.get_price(),
+			"eggs_per_second" : item.get_eggs_per_second(),
+			"count" : item.get_count(),
+		}
+		items_infos.append(item_infos)
+	
+	var  game_infos = {
+		"egg_count" : _egg_count,
+		"egg_per_click" : _egg_per_click,
+		"inflation_rate" : _inflation_rate,
+		"production_rate" : _production_rate,
+		"items" : items_infos,
+	}
+	return game_infos
+
+	
+	 
