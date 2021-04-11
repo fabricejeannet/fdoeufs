@@ -6,7 +6,9 @@ var game_scene = null
 
 func pre():	
 	game_scene = GameScene.instance()
+	game_scene.test_mode = true
 	game_scene._ready()
+	
 	
 func post():
 	game_scene.queue_free()
@@ -28,37 +30,19 @@ func test_clicking_on_the_egg_updates_egg_counter() -> void:
 func test_TickTimer_timeout_updates_egg_counter() -> void:
 	var game = game_scene.game
 	game.set_egg_count(2.0)
-#	var item = Item.new("Test item", "res://icon.png", 1.0, 10.0)
-#	game.items.append(item)
 	game.buy(game.items[0], 1)
 	game_scene._on_TickTimer_timeout()
 	asserts.is_equal(game.get_egg_count(), 1.1)
-	
+
 
 func test_item_button_container_is_correctly_filled() -> void:
-#	var items_specifications = [
-#		["Item #0", "res://icon.png", 1.0, 10.0],
-#		["Item #1", "res://icon.png", 1.0, 10.0],
-#		["Item #2", "res://icon.png", 1.0, 10.0],
-#	]
-#	var game = game_scene.game
-#	game.init_items(items_specifications)
-#	game_scene.add_item_buttons()
-	asserts.is_equal(game_scene.item_button_container.get_child_count(), 5)
+	asserts.is_equal(game_scene.item_button_container.get_child_count(), game_scene.items_specifications.size())
 
 
 func test_can_update_item_button_container() -> void:
-#	var items_specifications = [
-#		["Item #0", "res://icon.png", 1.0, 0.0],
-#		["Item #1", "res://icon.png", 10.0, 2.0],
-#	]
 	var game = game_scene.game
-#	game.init_items(items_specifications)
 	game.buy(game.items[0], 1)
 	game.buy(game.items[1], 1)
-#	game_scene.add_item_buttons()
-#	for item_button in game_scene.item_button_container.get_children(): #_ready function is not called automaticaly 
-#		item_button._ready()
 	game.set_egg_count(3.0)
 	game_scene.update_item_button_container()
 	asserts.is_false(game_scene.item_button_container.get_child(0).disabled)
@@ -75,19 +59,14 @@ func test_can_update_item_button_container() -> void:
 
 
 func test_can_buy_an_item_by_clicking_an_item_button() -> void:
-#	var items_specifications = [
-#		["Item #0", "res://icon.png", 1.0, 0.0],
-#		["Item #1", "res://icon.png", 10.0, 2.0],
-#	]
 	var game = game_scene.game
-#	game.init_items(items_specifications)
-#	game_scene.add_item_buttons()
-#	for item_button in game_scene.item_button_container.get_children(): #_ready function is not called automaticaly 
-#		item_button._ready()
 	game.set_egg_count(2.0)
 	game_scene.update_item_button_container()
 	game_scene._on_item_button_click(game.items[0])
 	asserts.is_equal(game.items[0].get_count(), 1)
+
+#func test_can_save_game() -> void:
+#	game_scene.save_game()
 	
 
 

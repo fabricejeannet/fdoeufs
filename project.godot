@@ -60,11 +60,12 @@ Display=8
 [application]
 
 config/name="fdoeufs"
+run/main_scene="res://scenes/game_scene.tscn"
 config/icon="res://icon.png"
 
 [display]
 
-window/size/height=800
+window/size/height=1024
 
 [editor_plugins]
 

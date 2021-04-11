@@ -50,5 +50,9 @@ func get_count() -> int:
 	return count
 
 
+func set_count(value:int) -> void:
+	count = value
+
+
 func add_to_count(quantity:int) -> void:
 	count += quantity
