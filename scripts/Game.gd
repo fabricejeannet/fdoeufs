@@ -5,8 +5,9 @@ class_name Game
 var _egg_count = 0.0
 var _egg_per_click = 1.0
 var items = []
-var _inflation_rate = 1.0
+var _inflation_rate = 0.15
 var _production_rate = 1.0
+var _clicks_count = 0
 
 func get_egg_count() -> float:
 	return _egg_count
@@ -16,14 +17,22 @@ func set_egg_count(value:float) -> void:
 	_egg_count = value
 
 
-func set_egg_per_click(value:float) -> void:
+func set_eggs_per_click(value:float) -> void:
 	_egg_per_click = value
 
-func get_egg_per_click() -> float:
+func get_eggs_per_click() -> float:
 	return _egg_per_click
 	
 func click_egg() -> void:
 	_egg_count += _egg_per_click * _production_rate
+	_clicks_count += 1
+
+func get_clicks_count() -> int:
+	return _clicks_count
+
+
+func set_clicks_count(value:int) -> void:
+	_clicks_count = value
 
 
 func init_items(items_specifictions) -> void:
@@ -60,6 +69,10 @@ func increase_item_price (item, quantity) -> void :
 
 
 func set_production_rate(value:float) -> void:
+	_production_rate = value
+
+
+func alter_production_rate(value:float) -> void:
 	_production_rate += value
 
 
@@ -67,7 +80,7 @@ func get_production_rate() -> float:
 	return _production_rate
 
 
-func count_eggs_produced_by_items() -> float:
+func get_eggs_per_second_rate() -> float:
 	var count = 0.0
 	for item in items:
 		count += item.get_eggs_per_second() * item.get_count() * _production_rate
@@ -90,6 +103,7 @@ func get_game_datas():
 		"egg_per_click" : _egg_per_click,
 		"inflation_rate" : _inflation_rate,
 		"production_rate" : _production_rate,
+		"clicks_count" : _clicks_count,
 		"items" : items_infos,
 	}
 	return game_infos

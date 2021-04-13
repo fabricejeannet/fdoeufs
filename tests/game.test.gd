@@ -14,7 +14,7 @@ func test_game_starts_with_zero_egg() -> void:
 
 
 func test_can_set_an_egg_per_click_value() -> void:
-	game.set_egg_per_click(2.0)
+	game.set_eggs_per_click(2.0)
 	game.click_egg()
 	asserts.is_equal(game.get_egg_count(), 2.0)
 
@@ -48,9 +48,9 @@ func test_cant_buy_items_if_you_dont_have_enough_eggs() -> void:
 
 
 func test_can_apply_both_positive_and_negative_effects_on_eggs_per_click_rate() -> void:
-	game.set_production_rate(0.2)
-	game.set_production_rate(-0.1)	
-	game.set_egg_per_click(100.0)
+	game.alter_production_rate(0.2)
+	game.alter_production_rate(-0.1)	
+	game.set_eggs_per_click(100.0)
 	game.click_egg()
 	asserts.is_equal(ceil(game.get_egg_count()), 110)
 
@@ -63,7 +63,7 @@ func test_can_count_eggs_produced_in_1_second_by_all_items() -> void :
 	game.init_items(items_specifications)
 	game.buy(game.items[0], 1)
 	game.buy(game.items[1], 1)
-	var count = game.count_eggs_produced_by_items()
+	var count = game.get_eggs_per_second_rate()
 	asserts.is_equal(count, 3.0)
 
 
@@ -75,9 +75,9 @@ func test_can_apply_both_positive_and_negative_effects_on_eggs_per_second_rate()
 	game.init_items(items_specifications)
 	game.buy(game.items[0], 1)
 	game.buy(game.items[1], 1)
-	game.set_production_rate(0.2)
-	game.set_production_rate(-0.1)	
-	var count = game.count_eggs_produced_by_items()
+	game.alter_production_rate(0.2)
+	game.alter_production_rate(-0.1)	
+	var count = game.get_eggs_per_second_rate()
 	asserts.is_equal(ceil(count), 11)
 
 
@@ -93,7 +93,7 @@ func test_can_convert_game_as_dictionary() -> void :
 	var game_infos = game.get_game_datas()
 	
 	asserts.is_equal(game_infos["egg_count"], game.get_egg_count())
-	asserts.is_equal(game_infos["egg_per_click"], game.get_egg_per_click())
+	asserts.is_equal(game_infos["egg_per_click"], game.get_eggs_per_click())
 	asserts.is_equal(game_infos["inflation_rate"], game.get_inflation_rate())
 	asserts.is_equal(game_infos["production_rate"], game.get_production_rate())
 
@@ -109,4 +109,4 @@ func test_can_convert_game_as_dictionary() -> void :
 	asserts.is_equal(game_infos["items"][1]["icon_path"],game.items[1].get_icon_path())
 	asserts.is_equal(game_infos["items"][1]["eggs_per_second"],game.items[1].get_eggs_per_second())
 
-	
+
